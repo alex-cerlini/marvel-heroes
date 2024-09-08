@@ -10,7 +10,7 @@ import {
 import { useForm } from "react-hook-form";
 import { useContext, useEffect } from "react";
 import { InputsProps } from "./types";
-import { HeroesContext } from "@/app/page";
+import { HeroesContext } from "@/app/context/Heroes";
 
 export const HomeFilter = () => {
   const { updateResults } = useContext(HeroesContext);

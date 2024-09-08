@@ -3,13 +3,8 @@
 import { HeroCard } from "@/components/heroCard";
 import { apiResponseMock } from "./tmp-response-mock";
 import { HomeFilter } from "@/components/homeFilter";
-import { createContext, useState } from "react";
-
-export const HeroesContext = createContext({
-  results: apiResponseMock,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  updateResults: (inputValue: string) => {},
-});
+import { useState } from "react";
+import { HeroesContext } from "./context/Heroes";
 
 export default function Home() {
   const [results, setResults] =
@@ -38,7 +33,7 @@ export default function Home() {
       <div className="min-h-[calc(100svh-175px)] gap-0 flex flex-col justify-start">
         <HomeFilter />
 
-        <div className="grid grid-cols-5 items-center min-h-full gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 items-center min-h-full gap-4">
           {results.data.results.map((hero) => (
             <HeroCard key={hero.id} hero={hero} />
           ))}
