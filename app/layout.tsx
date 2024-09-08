@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Link from "next/link";
 import { apiResponseMock } from "./tmp-response-mock";
-import marvelLogo from "./Marvel_Logo.svg";
+import marvelLogo from "@/assets/Marvel_Logo.svg";
 import Image from "next/image";
 
 const geistSans = localFont({
