@@ -2,10 +2,10 @@ import { getMarvelAuthorization } from '@/lib/utils'
 import { useQuery } from '@tanstack/react-query'
 import { HeroesResponse } from './types'
 
-const fetchHeroes = async (page = 0): Promise<HeroesResponse> => {
+const fetchHeroes = async (page = 1): Promise<HeroesResponse> => {
     const { ts, publicApiKey, hash, marvelBaseUrl } = getMarvelAuthorization()
 
-    const offset = page * 20
+    const offset = (page - 1) * 20
 
     const response = await fetch(`${marvelBaseUrl}/v1/public/characters?ts=${ts}&apikey=${publicApiKey}&hash=${hash}&orderBy=name&limit=20&offset=${offset}`)
     const data = await response.json()
