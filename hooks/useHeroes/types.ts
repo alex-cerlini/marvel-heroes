@@ -1,4 +1,4 @@
-export type HeroesResponse = {
+type MarvelResponseApi<T> = {
     code: number;
     status: string;
     copyright: string;
@@ -10,57 +10,58 @@ export type HeroesResponse = {
         limit: number;
         total: number;
         count: number;
-        results: {
-            id: number;
-            name: string;
-            description: string;
-            modified: string;
-            thumbnail: {
-                path: string;
-                extension: string;
-            };
-            resourceURI: string;
-            comics: {
-                available: number;
-                collectionURI: string;
-                items: {
-                    resourceURI: string;
-                    name: string;
-                }[];
-                returned: number;
-            };
-            series: {
-                available: number;
-                collectionURI: string;
-                items: {
-                    resourceURI: string;
-                    name: string;
-                }[];
-                returned: number;
-            };
-            stories: {
-                available: number;
-                collectionURI: string;
-                items: {
-                    resourceURI: string;
-                    name: string;
-                    type: string;
-                }[];
-                returned: number;
-            };
-            events: {
-                available: number;
-                collectionURI: string;
-                items: {
-                    resourceURI: string;
-                    name: string;
-                }[];
-                returned: number;
-            };
-            urls: {
-                type: string;
-                url: string;
-            }[];
-        }[];
+        results: T
     }
 }
+export type HeroesResponse = MarvelResponseApi<{
+    id: number;
+    name: string;
+    description: string;
+    modified: string;
+    thumbnail: {
+        path: string;
+        extension: string;
+    };
+    resourceURI: string;
+    comics: {
+        available: number;
+        collectionURI: string;
+        items: {
+            resourceURI: string;
+            name: string;
+        }[];
+        returned: number;
+    };
+    series: {
+        available: number;
+        collectionURI: string;
+        items: {
+            resourceURI: string;
+            name: string;
+        }[];
+        returned: number;
+    };
+    stories: {
+        available: number;
+        collectionURI: string;
+        items: {
+            resourceURI: string;
+            name: string;
+            type: string;
+        }[];
+        returned: number;
+    };
+    events: {
+        available: number;
+        collectionURI: string;
+        items: {
+            resourceURI: string;
+            name: string;
+        }[];
+        returned: number;
+    };
+    urls: {
+        type: string;
+        url: string;
+    }[];
+}[]>
