@@ -8,25 +8,21 @@ import {
   TooltipTrigger,
 } from "../shadcn/tooltip";
 import { useForm } from "react-hook-form";
-import { useEffect } from "react";
+import { useContext } from "react";
 import { InputsProps } from "./types";
+import { FiltersContext } from "@/context/filters";
 
 export const HomeFilter = () => {
+  const { updateInput } = useContext(FiltersContext);
   const handleForm = (formData: InputsProps) => {
-    console.log(formData.heroValue);
+    updateInput(formData.heroValue);
   };
 
   const handleClearForm = () => {
-    console.log("");
+    updateInput("");
   };
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<InputsProps>();
-
-  useEffect(() => console.log({ errors }), [errors]);
+  const { register, handleSubmit } = useForm<InputsProps>();
 
   return (
     <form className="mt-8 flex gap-4" onSubmit={handleSubmit(handleForm)}>

@@ -7,7 +7,7 @@ const fetchHeroes = async (page = 1): Promise<HeroesResponse> => {
 
     const offset = (page - 1) * 20
 
-    const response = await fetch(`${marvelBaseUrl}/v1/public/characters?ts=${ts}&apikey=${publicApiKey}&hash=${hash}&orderBy=name&limit=20&offset=${offset}`)
+    const response = await fetch(`${marvelBaseUrl}/v1/publi/characters?ts=${ts}&apikey=${publicApiKey}&hash=${hash}&orderBy=name&limit=20&offset=${offset}`)
     const data = await response.json()
     return data
 }
