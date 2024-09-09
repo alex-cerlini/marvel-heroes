@@ -13,7 +13,7 @@ export const Heroes = () => {
   if (isFetching) {
     return (
       <div className="min-h-[calc(100svh-320px)] flex items-center justify-center max-w-screen-xl w-full">
-        <LoadingSpinner className="w-28 h-28" />
+        <LoadingSpinner size={112} />
       </div>
     );
   }
