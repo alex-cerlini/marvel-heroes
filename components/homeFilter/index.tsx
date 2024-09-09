@@ -8,19 +8,16 @@ import {
   TooltipTrigger,
 } from "../shadcn/tooltip";
 import { useForm } from "react-hook-form";
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import { InputsProps } from "./types";
-import { HeroesContext } from "@/app/context/Heroes";
 
 export const HomeFilter = () => {
-  const { updateResults } = useContext(HeroesContext);
-
   const handleForm = (formData: InputsProps) => {
-    updateResults(formData.heroValue);
+    console.log(formData.heroValue);
   };
 
   const handleClearForm = () => {
-    updateResults("");
+    console.log("");
   };
 
   const {
@@ -32,7 +29,7 @@ export const HomeFilter = () => {
   useEffect(() => console.log({ errors }), [errors]);
 
   return (
-    <form className="my-8 flex gap-4" onSubmit={handleSubmit(handleForm)}>
+    <form className="mt-8 flex gap-4" onSubmit={handleSubmit(handleForm)}>
       <Input placeholder="Enter your hero name" {...register("heroValue")} />
 
       <TooltipProvider>
