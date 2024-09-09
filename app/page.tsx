@@ -6,7 +6,7 @@ import { Pagination } from "@/components/pagination";
 export default async function Home() {
   return (
     <Providers>
-      <div className="min-h-[calc(100svh-175px)] gap-4 flex flex-col justify-start max-w-screen-xl">
+      <div className="min-h-[calc(100svh-175px)] gap-4 flex flex-col justify-start max-w-screen-xl w-full">
         <HomeFilter />
         <Heroes />
         <Pagination />
