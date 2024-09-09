@@ -56,6 +56,7 @@ const PaginationLink = ({
         variant: isActive ? "outline" : "ghost",
         size,
       }),
+      "cursor-default",
       className
     )}
     {...props}
