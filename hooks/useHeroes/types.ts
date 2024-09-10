@@ -1,4 +1,4 @@
-type MarvelResponseApi<T> = {
+export type MarvelResponseApi<T> = {
     code: number;
     status: string;
     copyright: string;

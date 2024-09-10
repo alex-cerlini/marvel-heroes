@@ -8,63 +8,14 @@ import {
   CardTitle,
 } from "@/components/shadcn/card";
 import { Button } from "@/components/shadcn/button";
+import { HeroesResponse } from "@/hooks/useHeroes/types";
+import { useRouter } from "next/navigation";
 
-type HeroCardProps = {
-  hero: {
-    id: number;
-    name: string;
-    description: string;
-    modified: string;
-    thumbnail: {
-      path: string;
-      extension: string;
-    };
-    resourceURI: string;
-    comics: {
-      available: number;
-      collectionURI: string;
-      items: {
-        resourceURI: string;
-        name: string;
-      }[];
-      returned: number;
-    };
-    series: {
-      available: number;
-      collectionURI: string;
-      items: {
-        resourceURI: string;
-        name: string;
-      }[];
-      returned: number;
-    };
-    stories: {
-      available: number;
-      collectionURI: string;
-      items: {
-        resourceURI: string;
-        name: string;
-        type: string;
-      }[];
-      returned: number;
-    };
-    events: {
-      available: number;
-      collectionURI: string;
-      items: {
-        resourceURI: string;
-        name: string;
-      }[];
-      returned: number;
-    };
-    urls: {
-      type: string;
-      url: string;
-    }[];
-  };
-};
+export type HeroProps = { hero: HeroesResponse["data"]["results"][number] };
 
-export const HeroCard = ({ hero }: HeroCardProps) => {
+export const HeroCard = ({ hero }: HeroProps) => {
+  const router = useRouter();
+
   return (
     <Card className="h-full w-full">
       <CardHeader className="p-2 flex flex-col items-center">
@@ -78,7 +29,11 @@ export const HeroCard = ({ hero }: HeroCardProps) => {
         <CardTitle className="text-base">{hero.name}</CardTitle>
       </CardHeader>
       <CardFooter className="w-full p-2">
-        <Button variant="default" className="w-full">
+        <Button
+          variant="default"
+          className="w-full"
+          onClick={() => router.push(`/character/${hero.id}`)}
+        >
           See more
         </Button>
       </CardFooter>
