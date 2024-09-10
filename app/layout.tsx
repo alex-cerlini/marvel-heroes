@@ -5,6 +5,7 @@ import Link from "next/link";
 import { apiResponseMock } from "./tmp-response-mock";
 import marvelLogo from "@/assets/Marvel_Logo.svg";
 import Image from "next/image";
+import { Providers } from "@/components/providers";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -35,7 +36,7 @@ export default function RootLayout({
         <h1 className="mt-8 mb-2">
           <Image src={marvelLogo} alt="Marvel logo" className="max-w-48" />
         </h1>
-        {children}
+        <Providers>{children}</Providers>
         <footer className="text-xs mb-2">
           <Link href="http://marvel.com" target="_blank">
             {apiResponseMock.attributionText}

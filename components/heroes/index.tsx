@@ -4,7 +4,7 @@ import { useHeroes } from "@/hooks/useHeroes/index";
 import { useSearchParams } from "next/navigation";
 import { LoadingSpinner } from "../loadingSpinner";
 import { useContext } from "react";
-import { FiltersContext } from "@/context/filters";
+import { GlobalContext } from "@/context/global";
 
 export const Heroes = () => {
   const searchParams = useSearchParams();
@@ -12,7 +12,7 @@ export const Heroes = () => {
 
   const { data: response, isFetching, isError } = useHeroes(page);
 
-  const { input: inputFilter } = useContext(FiltersContext);
+  const { input: inputFilter } = useContext(GlobalContext);
 
   const results = inputFilter
     ? response?.data?.results?.filter((hero) => {

@@ -10,10 +10,10 @@ import {
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { InputsProps } from "./types";
-import { FiltersContext } from "@/context/filters";
+import { GlobalContext } from "@/context/global";
 
 export const HomeFilter = () => {
-  const { updateInput } = useContext(FiltersContext);
+  const { updateInput } = useContext(GlobalContext);
   const handleForm = (formData: InputsProps) => {
     updateInput(formData.heroValue);
   };
