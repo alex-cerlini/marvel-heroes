@@ -6,7 +6,7 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "../shadcn/tooltip";
+} from "@/components/shadcn/tooltip";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { InputsProps } from "./types";
