@@ -8,20 +8,13 @@ import { GlobalContext } from "@/context/global";
 import { ChartPie } from "lucide-react";
 
 import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/shadcn/tooltip";
-
-import {
   Drawer,
   DrawerContent,
-  DrawerDescription,
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/shadcn/drawer";
+import { HeroCharts } from "../HeroCharts";
 
 export const Heroes = () => {
   const searchParams = useSearchParams();
@@ -59,22 +52,16 @@ export const Heroes = () => {
       <div className="absolute -top-28 right-0">
         <Drawer>
           <DrawerTrigger>
-            <TooltipProvider>
-              <Tooltip>
-                <TooltipTrigger type="reset">
-                  <ChartPie className="w-full h-full" />
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>Open Charts</p>
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
+            <ChartPie className="w-full h-full" />
           </DrawerTrigger>
-          <DrawerContent className="h-[500px] bg-black">
+          <DrawerContent
+            className="h-[500px] bg-black"
+            aria-describedby={undefined}
+          >
             <DrawerHeader className="flex items-center flex-col">
-              <DrawerTitle>The charts will be here !</DrawerTitle>
-              <DrawerDescription>Chart right here</DrawerDescription>
+              <DrawerTitle>Page {page} Charts</DrawerTitle>
             </DrawerHeader>
+            <HeroCharts results={results} />
           </DrawerContent>
         </Drawer>
       </div>

@@ -16,3 +16,11 @@ export const getMarvelAuthorization = () => {
 
   return { ts, hash, publicApiKey, marvelBaseUrl }
 }
+
+export const generateRandomHslColor = () => {
+  const h = Math.floor(Math.random() * 359);
+  const s = 70;
+  const l = 50;
+
+  return `hsl(${h},${s}%,${l}%)`;
+}
