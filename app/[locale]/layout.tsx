@@ -44,12 +44,16 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-svh flex flex-col items-center justify-between gap-y-4`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-svh flex flex-col items-center justify-between gap-y-8 lg:gap-y-4`}
       >
         <NextIntlClientProvider messages={messages}>
-          <h1 className="mt-8 mb-2">
-            <Image src={marvelLogo} alt="Marvel logo" className="max-w-48" />
-          </h1>
+          <div className="mt-8 mb-2 w-[100svw] flex pl-8 md:ml-0 md:justify-center">
+            <Image
+              src={marvelLogo}
+              alt="Marvel logo"
+              className="max-w-32 md:max-w-48"
+            />
+          </div>
           <Providers>{children}</Providers>
           <footer className="text-xs mb-2">
             <Link href="http://marvel.com" target="_blank">

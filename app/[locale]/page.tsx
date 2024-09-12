@@ -4,7 +4,6 @@ import { LoadingSpinner } from "@/components/loadingSpinner";
 import { Suspense, useState } from "react";
 import { Heroes } from "@/components/heroes";
 import { Pagination } from "@/components/pagination";
-import { HeroProps } from "@/components/heroCard";
 import { GlobalContext } from "@/context/global";
 import { LanguageSelector } from "@/components/languageSelector";
 
@@ -15,18 +14,12 @@ export default function Home() {
     setInput(value);
   };
 
-  const [hero, setHero] = useState<HeroProps>({} as HeroProps);
-
-  const updateHero = (hero: HeroProps) => {
-    setHero(hero);
-  };
-
   return (
-    <div className="min-h-[calc(100svh-175px)] gap-4 flex flex-col justify-start max-w-screen-xl w-full">
-      <GlobalContext.Provider value={{ input, updateInput, hero, updateHero }}>
+    <div className="min-h-[calc(100svh-175px)] gap-4 flex flex-col justify-start max-w-screen-xl w-full px-8 md:px-0">
+      <GlobalContext.Provider value={{ input, updateInput }}>
         <Suspense>
-          <div className="absolute top-10 left-0 w-full">
-            <div className="mx-auto max-w-screen-xl flex justify-end">
+          <div className="absolute top-10 right-8 md:right-0 w-full">
+            <div className="mx-auto md:max-w-screen-xl flex justify-end">
               <LanguageSelector />
             </div>
           </div>
