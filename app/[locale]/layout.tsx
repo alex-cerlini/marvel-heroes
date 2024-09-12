@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "../globals.css";
 import Link from "next/link";
-import { apiResponseMock } from "../tmp-response-mock";
 import marvelLogo from "@/assets/Marvel_Logo.svg";
 import Image from "next/image";
 import { Providers } from "@/components/providers";
@@ -57,7 +56,7 @@ export default async function RootLayout({
           <Providers>{children}</Providers>
           <footer className="text-xs mb-2">
             <Link href="http://marvel.com" target="_blank">
-              {apiResponseMock.attributionText}
+              Data provided by Marvel. © 2024 MARVEL
             </Link>
           </footer>
         </NextIntlClientProvider>
