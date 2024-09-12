@@ -11,6 +11,7 @@ import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { InputsProps } from "./types";
 import { GlobalContext } from "@/context/global";
+import { useTranslations } from "next-intl";
 
 export const HomeFilter = () => {
   const { updateInput } = useContext(GlobalContext);
@@ -24,9 +25,11 @@ export const HomeFilter = () => {
 
   const { register, handleSubmit } = useForm<InputsProps>();
 
+  const t = useTranslations("Home");
+
   return (
     <form className="mt-8 flex gap-4" onSubmit={handleSubmit(handleForm)}>
-      <Input placeholder="Enter your hero name" {...register("heroValue")} />
+      <Input placeholder={t("filter")} {...register("heroValue")} />
 
       <TooltipProvider>
         <Tooltip>
@@ -34,7 +37,7 @@ export const HomeFilter = () => {
             <SearchIcon className="w-full h-full" />
           </TooltipTrigger>
           <TooltipContent>
-            <p>Search</p>
+            <p>{t("search")}</p>
           </TooltipContent>
         </Tooltip>
       </TooltipProvider>
@@ -45,7 +48,7 @@ export const HomeFilter = () => {
             <Eraser className="w-full h-full" />
           </TooltipTrigger>
           <TooltipContent>
-            <p>Clear</p>
+            <p>{t("clear")}</p>
           </TooltipContent>
         </Tooltip>
       </TooltipProvider>

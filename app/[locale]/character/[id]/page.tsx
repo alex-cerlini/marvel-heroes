@@ -18,6 +18,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/shadcn/accordion";
+import { useTranslations } from "next-intl";
 
 export default function Character() {
   const pathname = usePathname();
@@ -34,6 +35,8 @@ export default function Character() {
   };
 
   const galleryItems = ["comics", "series", "stories", "events"] as const;
+
+  const tNotFound = useTranslations("NotFound");
 
   return (
     <div className="min-h-[calc(100svh-175px)] max-w-screen-xl w-full flex justify-center items-center">
@@ -53,10 +56,7 @@ export default function Character() {
           <LoadingSpinner size={112} />
         </div>
       ) : isError || response?.code !== 200 ? (
-        <div>
-          No results were found for your search. Please try again in a few
-          moments.
-        </div>
+        <div>{tNotFound("title")}</div>
       ) : (
         <div className="flex justify-center gap-x-20 w-full">
           <div className="max-h-96 h-full w-full">
@@ -68,7 +68,7 @@ export default function Character() {
           </div>
           <div className="w-full space-y-6">
             <h1 className="text-3xl">{hero?.name}</h1>
-            <p>{hero?.description || "No description available"}</p>
+            <p>{hero?.description || tNotFound("description")}</p>
             <div className="grid grid-cols-4 w-full justify-between gap-x-4">
               {galleryItems.map((item) => (
                 <Accordion type="single" collapsible key={item}>

@@ -1,5 +1,20 @@
 {
-  "HomePage": {
-    "title": "Hello world!"
+  "Home": {
+    "seeMore": "See more",
+    "chartsTitle": "Chart Page",
+    "search": "Search",
+    "clear": "Clear",
+    "selectLanguage": "Select a language",
+    "filter": "Enter your hero name"
+  },
+  "NotFound": {
+    "title": "No results were found for your search. Please try again in a few moments.",
+    "description": "No description available"
+  },
+  "Pagination": {
+    "previous": "Previous",
+    "previousAria": "Go to previous page",
+    "next": "Next",
+    "nextAria": "Go to next page"
   }
 }

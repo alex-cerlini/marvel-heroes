@@ -6,7 +6,6 @@ import { Heroes } from "@/components/heroes";
 import { Pagination } from "@/components/pagination";
 import { HeroProps } from "@/components/heroCard";
 import { GlobalContext } from "@/context/global";
-import { useTranslations } from "next-intl";
 import { LanguageSelector } from "@/components/languageSelector";
 
 export default function Home() {
@@ -21,10 +20,6 @@ export default function Home() {
   const updateHero = (hero: HeroProps) => {
     setHero(hero);
   };
-
-  const t = useTranslations("HomePage");
-
-  console.log(t("title"));
 
   return (
     <div className="min-h-[calc(100svh-175px)] gap-4 flex flex-col justify-start max-w-screen-xl w-full">

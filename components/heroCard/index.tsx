@@ -10,11 +10,13 @@ import {
 import { Button } from "@/components/shadcn/button";
 import { HeroesResponse } from "@/hooks/useHeroes/types";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 export type HeroProps = { hero: HeroesResponse["data"]["results"][number] };
 
 export const HeroCard = ({ hero }: HeroProps) => {
   const router = useRouter();
+  const t = useTranslations("Home");
 
   return (
     <Card className="h-full w-full">
@@ -34,7 +36,7 @@ export const HeroCard = ({ hero }: HeroProps) => {
           className="w-full"
           onClick={() => router.push(`/character/${hero.id}`)}
         >
-          See more
+          {t("seeMore")}
         </Button>
       </CardFooter>
     </Card>

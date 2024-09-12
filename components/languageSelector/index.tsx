@@ -7,7 +7,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/shadcn/select";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useRouter, useSearchParams } from "next/navigation";
 
 export const LanguageSelector = () => {
@@ -35,6 +35,8 @@ export const LanguageSelector = () => {
     languages.find((language) => language.value === localeActive)?.label ??
     languages[0].label;
 
+  const t = useTranslations("Home");
+
   return (
     <Select onValueChange={onSelectChange}>
       <SelectTrigger className="w-[150px]">
@@ -42,7 +44,7 @@ export const LanguageSelector = () => {
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          <SelectLabel>Select a language</SelectLabel>
+          <SelectLabel>{t("selectLanguage")}</SelectLabel>
           <SelectItem value="en">English</SelectItem>
           <SelectItem value="pt">Português</SelectItem>
         </SelectGroup>

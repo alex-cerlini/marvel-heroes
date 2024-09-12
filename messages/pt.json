@@ -1,5 +1,20 @@
 {
-  "HomePage": {
-    "title": "Olá Mundo!"
+  "Home": {
+    "seeMore": "Ver mais",
+    "chartsTitle": "Gráfico da página",
+    "search": "Buscar",
+    "clear": "Limpar",
+    "selectLanguage": "Selecione um idioma",
+    "filter": "Digite o nome do herói"
+  },
+  "NotFound": {
+    "title": "Nenhum resultado foi encontrado na sua busca. Por favor tente novamente em alguns instantes.",
+    "description": "Nenhuma descrição disponível"
+  },
+  "Pagination": {
+    "previous": "Anterior",
+    "previousAria": "Ir para a página anterior",
+    "next": "Seguinte",
+    "nextAria": "Ir para a página seguinte"
   }
 }

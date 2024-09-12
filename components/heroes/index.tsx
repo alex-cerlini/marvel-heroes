@@ -15,6 +15,7 @@ import {
   DrawerTrigger,
 } from "@/components/shadcn/drawer";
 import { HeroCharts } from "../HeroCharts";
+import { useTranslations } from "next-intl";
 
 export const Heroes = () => {
   const searchParams = useSearchParams();
@@ -30,6 +31,9 @@ export const Heroes = () => {
       })
     : response?.data?.results;
 
+  const t = useTranslations("NotFound");
+  const tHome = useTranslations("Home");
+
   if (isFetching) {
     return (
       <div className="min-h-[calc(100svh-320px)] flex items-center justify-center max-w-screen-xl w-full">
@@ -41,8 +45,7 @@ export const Heroes = () => {
   if (isError || results?.length === 0) {
     return (
       <div className="min-h-[calc(100svh-320px)] flex items-center justify-center max-w-screen-xl w-full">
-        No results were found for your search. Please try again in a few
-        moments.
+        {t("title")}
       </div>
     );
   }
@@ -59,7 +62,9 @@ export const Heroes = () => {
             aria-describedby={undefined}
           >
             <DrawerHeader className="flex items-center flex-col">
-              <DrawerTitle>Page {page} Charts</DrawerTitle>
+              <DrawerTitle>
+                {tHome("chartsTitle")} {page}
+              </DrawerTitle>
             </DrawerHeader>
             <HeroCharts results={results} />
           </DrawerContent>
