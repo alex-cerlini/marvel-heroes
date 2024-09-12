@@ -9,13 +9,12 @@ import {
 } from "@/components/shadcn/card";
 import { Button } from "@/components/shadcn/button";
 import { HeroesResponse } from "@/hooks/useHeroes/types";
-import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/routing";
 
 export type HeroProps = { hero: HeroesResponse["data"]["results"][number] };
 
 export const HeroCard = ({ hero }: HeroProps) => {
-  const router = useRouter();
   const t = useTranslations("Home");
 
   return (
@@ -31,13 +30,11 @@ export const HeroCard = ({ hero }: HeroProps) => {
         <CardTitle className="text-base">{hero.name}</CardTitle>
       </CardHeader>
       <CardFooter className="w-full p-2">
-        <Button
-          variant="default"
-          className="w-full"
-          onClick={() => router.push(`/character/${hero.id}`)}
-        >
-          {t("seeMore")}
-        </Button>
+        <Link href={`/character/${hero.id}`} className="w-full">
+          <Button variant="default" className="w-full" type="button">
+            {t("seeMore")}
+          </Button>
+        </Link>
       </CardFooter>
     </Card>
   );
