@@ -7,6 +7,7 @@ import { Pagination } from "@/components/pagination";
 import { HeroProps } from "@/components/heroCard";
 import { GlobalContext } from "@/context/global";
 import { useTranslations } from "next-intl";
+import { LanguageSelector } from "@/components/languageSelector";
 
 export default function Home() {
   const [input, setInput] = useState<string>("");
@@ -28,6 +29,11 @@ export default function Home() {
   return (
     <div className="min-h-[calc(100svh-175px)] gap-4 flex flex-col justify-start max-w-screen-xl w-full">
       <GlobalContext.Provider value={{ input, updateInput, hero, updateHero }}>
+        <div className="absolute top-10 left-0 w-full">
+          <div className="mx-auto max-w-screen-xl flex justify-end">
+            <LanguageSelector />
+          </div>
+        </div>
         <HomeFilter />
         <Suspense
           fallback={
