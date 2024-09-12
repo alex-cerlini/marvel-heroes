@@ -45,8 +45,12 @@ export const LanguageSelector = () => {
       <SelectContent>
         <SelectGroup>
           <SelectLabel>{t("selectLanguage")}</SelectLabel>
-          <SelectItem value="en">English</SelectItem>
-          <SelectItem value="pt">Português</SelectItem>
+          <SelectItem value="en" id="en">
+            English
+          </SelectItem>
+          <SelectItem value="pt" id="pt">
+            Português
+          </SelectItem>
         </SelectGroup>
       </SelectContent>
     </Select>

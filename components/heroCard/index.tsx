@@ -18,7 +18,7 @@ export const HeroCard = ({ hero }: HeroProps) => {
   const t = useTranslations("Home");
 
   return (
-    <Card className="h-full w-full">
+    <Card className="h-full w-full" id="hero-card">
       <CardHeader className="p-2 flex flex-col items-center">
         <CardDescription className="max-h-44 max-w-52">
           <img

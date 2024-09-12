@@ -55,7 +55,7 @@ export const Heroes = () => {
       <div className="absolute -top-28 right-0">
         <Drawer>
           <DrawerTrigger>
-            <ChartPie className="w-full h-full" />
+            <ChartPie className="w-full h-full" id="open-chart-drawer" />
           </DrawerTrigger>
           <DrawerContent
             className="h-[500px] bg-black"
