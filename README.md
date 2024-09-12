@@ -68,7 +68,7 @@ git clone git@github.com:alex-cerlini/marvel-heroes.git
 3. Run the following command to install the dependencies:
    `npm i`
 
-4. Create .env file on root of the project with the following keys and fullfil with your marvel keys:
+4. Create .env file on root of the project with the following keys and fullfil with your [marvel keys](https://developer.marvel.com/):
 
 ```
 MARVEL_PUBLIC_API_KEY=
